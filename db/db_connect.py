@@ -11,12 +11,13 @@ def connectToDB():
         database=config.db
     )
 
-
-# with connection.cursor() as cursor:
-#     cursor.execute(create_db_query)
-#     result = cursor.fetchall()
-#     for row in result:
-#         print(row)
+def conection():
+    return connect(
+        host=config.host,
+        port=config.port,
+        user=config.user,
+        password=config.password
+    )
 
 def conectionClose(connection):
     connection.cursor().close()

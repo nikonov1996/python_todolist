@@ -25,7 +25,8 @@ def get_todo_by_id(todo_id):
 
 
 def add_new_todo(title, content):
-    add_todo_query = f"insert into {config.todo_table} (title,content,creation_date) values ({title}{content}{datetime.datetime.now()})"
+    date = datetime.datetime.now()
+    add_todo_query = f"INSERT INTO {config.todo_table} (title,content,creation_date) VALUES ('{title}','{content}','{date}')"
     connection = connectToDB()
     cursor = connection.cursor()
     cursor.execute(add_todo_query)
