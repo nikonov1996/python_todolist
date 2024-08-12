@@ -1,23 +1,9 @@
-from mysql.connector import connect, Error
+import sqlite3
 import db.config as config
 
 
 def connectToDB():
-    return connect(
-        host=config.host,
-        port=config.port,
-        user=config.user,
-        password=config.password,
-        database=config.db
-    )
-
-def conection():
-    return connect(
-        host=config.host,
-        port=config.port,
-        user=config.user,
-        password=config.password
-    )
+    return sqlite3.connect(config.db + ".db")
 
 def conectionClose(connection):
     connection.cursor().close()
